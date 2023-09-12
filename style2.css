@@ -1,0 +1,295 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+  }
+  
+  select {
+    margin: 2rem auto;
+  }
+  
+  svg {
+    max-width: 60vmin;
+    max-height: 60vmin;
+    margin: auto;
+  }
+  
+  
+  
+  /* Grim Reaper animations */
+  .grim-reaper {
+    overflow: visible;  
+  }
+  
+  .grim-reaper [data-animate] {
+    transform-origin: center;
+  }
+  
+  /* Resting (default) */
+  .grim-reaper[data-reaction="resting"] [data-animate] {
+    -webkit-animation: var(--name) 2500ms ease infinite;
+            animation: var(--name) 2500ms ease infinite;
+  }
+  
+  .grim-reaper[data-reaction="resting"] [data-animate="body"] {
+    --name: body-rest;
+  }
+  
+  .grim-reaper[data-reaction="resting"] [data-animate="head"] {
+    --name: head-rest;
+  }
+  
+  .grim-reaper[data-reaction="resting"] [data-animate="jaw"] {
+    --name: jaw-rest;
+  }
+  
+  @-webkit-keyframes body-rest {
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+  
+  @keyframes body-rest {
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+  
+  @-webkit-keyframes head-rest {
+    50% {
+      transform: translateY(-10px) rotate(-1deg);
+    }
+  }
+  
+  @keyframes head-rest {
+    50% {
+      transform: translateY(-10px) rotate(-1deg);
+    }
+  }
+  
+  @-webkit-keyframes jaw-rest {
+    50% {
+      transform: rotate(3deg);
+    }
+  }
+  
+  @keyframes jaw-rest {
+    50% {
+      transform: rotate(3deg);
+    }
+  }
+  
+  /* Laughing */
+  .grim-reaper[data-reaction="laughing"] [data-animate] {
+    --duration: 220ms;
+    --count: 5;
+    
+    -webkit-animation: 
+      var(--name) var(--duration) ease var(--count),
+      var(--name) calc(var(--duration) * 5) calc(var(--duration) * var(--count)) cubic-bezier(0.26, 1, 0.3, 1) forwards;
+    
+            animation: 
+      var(--name) var(--duration) ease var(--count),
+      var(--name) calc(var(--duration) * 5) calc(var(--duration) * var(--count)) cubic-bezier(0.26, 1, 0.3, 1) forwards;
+  }
+  
+  .grim-reaper[data-reaction="laughing"] [data-animate="body"] {
+    --name: body-laugh;
+  }
+  
+  .grim-reaper[data-reaction="laughing"] [data-animate="head"] {
+    --name: head-laugh;
+  }
+  
+  .grim-reaper[data-reaction="laughing"] [data-animate="jaw"] {
+    --name: jaw-laugh;
+  }
+  
+  @-webkit-keyframes body-laugh {
+    50% {
+      transform: translateY(6px);
+    }
+  }
+  
+  @keyframes body-laugh {
+    50% {
+      transform: translateY(6px);
+    }
+  }
+  
+  @-webkit-keyframes head-laugh {
+    from,
+    to {
+      transform: rotate(-5deg);
+    }
+    50% {
+      transform: rotate(-10deg);
+    }
+  }
+  
+  @keyframes head-laugh {
+    from,
+    to {
+      transform: rotate(-5deg);
+    }
+    50% {
+      transform: rotate(-10deg);
+    }
+  }
+  
+  @-webkit-keyframes jaw-laugh {
+    50% {
+      transform: translateY(12px) rotate(10deg);
+    }
+  }
+  
+  @keyframes jaw-laugh {
+    50% {
+      transform: translateY(12px) rotate(10deg);
+    }
+  }
+  
+  /* Shocked */
+  .grim-reaper[data-reaction="shocked"] [data-animate] {
+    -webkit-animation: var(--name) 220ms ease forwards;
+            animation: var(--name) 220ms ease forwards;
+  }
+  
+  .grim-reaper[data-reaction="shocked"] [data-animate="body"] {
+    --name: body-shock;
+  }
+  
+  .grim-reaper[data-reaction="shocked"] [data-animate="head"] {
+    --name: head-shock;
+  }
+  
+  .grim-reaper[data-reaction="shocked"] [data-animate="jaw"] {
+    --name: jaw-drop;
+  }
+  
+  @-webkit-keyframes body-shock {
+    100% {
+      transform: translateY(12px);
+    }
+  }
+  
+  @keyframes body-shock {
+    100% {
+      transform: translateY(12px);
+    }
+  }
+  
+  @-webkit-keyframes head-shock {
+    100% {
+      transform: translateY(12px) rotate(-5deg);
+    }
+  }
+  
+  @keyframes head-shock {
+    100% {
+      transform: translateY(12px) rotate(-5deg);
+    }
+  }
+  
+  @-webkit-keyframes jaw-drop {
+    40% {
+      transform: translateY(60px) rotate(20deg);
+    }
+    60% {
+      transform: translateY(30px) rotate(10deg);
+    }
+    80% {
+      transform: translateY(45px) rotate(18deg);
+    }
+    100% {
+      transform: translateY(40px) rotate(15deg);
+    }
+  }
+  
+  @keyframes jaw-drop {
+    40% {
+      transform: translateY(60px) rotate(20deg);
+    }
+    60% {
+      transform: translateY(30px) rotate(10deg);
+    }
+    80% {
+      transform: translateY(45px) rotate(18deg);
+    }
+    100% {
+      transform: translateY(40px) rotate(15deg);
+    }
+  }
+  
+  /* Dancing */
+  .grim-reaper[data-reaction="dancing"] [data-animate] {
+    -webkit-animation: var(--name) var(--duration) ease infinite;
+            animation: var(--name) var(--duration) ease infinite;
+  }
+  
+  .grim-reaper[data-reaction="dancing"] [data-animate="body"] {
+    --name: body-dance;
+    --duration: 500ms;
+  }
+  
+  .grim-reaper[data-reaction="dancing"] [data-animate="head"] {
+    --name: head-dance;
+    --duration: 1s;
+  }
+  
+  .grim-reaper[data-reaction="dancing"] [data-animate="jaw"] {
+    --name: jaw-dance;
+    --duration: 500ms;
+  }
+  
+  @-webkit-keyframes body-dance {
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+  
+  @keyframes body-dance {
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+  
+  @-webkit-keyframes head-dance {
+    25% {
+      transform: scale(1.05) rotate(-2deg);
+    }
+    50% {
+      transform: scale(1) rotate(0);
+    }
+    75% {
+      transform: scale(1.05) rotate(2deg);
+    }
+  }
+  
+  @keyframes head-dance {
+    25% {
+      transform: scale(1.05) rotate(-2deg);
+    }
+    50% {
+      transform: scale(1) rotate(0);
+    }
+    75% {
+      transform: scale(1.05) rotate(2deg);
+    }
+  }
+  
+  @-webkit-keyframes jaw-dance {
+    50% {
+      transform: translateY(4px);
+    }
+  }
+  
+  @keyframes jaw-dance {
+    50% {
+      transform: translateY(4px);
+    }
+  }
